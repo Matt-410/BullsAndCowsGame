@@ -4,12 +4,14 @@
 void PrintIntro();
 void PlayGame();
 std::string GetGuess();
+bool AskToPlayAgain();
 
 // Main driver for the program.
 int main()
 {
 	PrintIntro();
 	PlayGame();
+	AskToPlayAgain();
 	return 0;
 }
 
@@ -42,4 +44,14 @@ std::string GetGuess()
 	string Guess;
 	getline(std::cin, Guess);
 	return Guess;
+}
+
+// Ask if player wants to play again.
+bool AskToPlayAgain()
+{
+	using namespace std;
+	cout << "Do you want to play again?";
+	string Response;
+	getline(cin, Response);
+	return (Response[0] == 'y') || (Response[0] == 'Y');
 }
