@@ -9,9 +9,13 @@ bool AskToPlayAgain();
 // Main driver for the program.
 int main()
 {
-	PrintIntro();
-	PlayGame();
-	AskToPlayAgain();
+	bool bPlayAgain = true;
+	do
+	{
+		PrintIntro();
+		PlayGame();
+		bPlayAgain = AskToPlayAgain();
+	} while (bPlayAgain);
 	return 0;
 }
 
@@ -50,7 +54,7 @@ std::string GetGuess()
 bool AskToPlayAgain()
 {
 	using namespace std;
-	cout << "Do you want to play again?";
+	cout << "Do you want to play again (y/n)? ";
 	string Response;
 	getline(cin, Response);
 	return (Response[0] == 'y') || (Response[0] == 'Y');
