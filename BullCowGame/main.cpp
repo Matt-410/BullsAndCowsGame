@@ -22,30 +22,27 @@ int main()
 // Introduction to the game.
 void PrintIntro()
 {
-	using namespace std;
 	constexpr int WORD_LENGTH = 5;
-	cout << "Welcome to Bulls and Cows, a fun word game.\n";
-	cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of?\n\n";
+	std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
+	std::cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of?\n\n";
 }
 
 void PlayGame()
 {
-	using namespace std;
 	// Loop for number of turns asking for guesses.
 	constexpr int NUMBER_OF_TURNS = 5;
 	for (int i = 1; i <= NUMBER_OF_TURNS; i++)
 	{
-		string Guess = GetGuess();
-		cout << "Your guess was: " << Guess << "\n\n";
+		std::string Guess = GetGuess();
+		std::cout << "Your guess was: " << Guess << "\n\n";
 	}
 }
 
 // Get a guess from the player.
 std::string GetGuess()
 {
-	using namespace std;
-	cout << "Enter Your Guess: \n";
-	string Guess;
+	std::cout << "Enter Your Guess: \n";
+	std::string Guess;
 	getline(std::cin, Guess);
 	return Guess;
 }
@@ -53,9 +50,8 @@ std::string GetGuess()
 // Ask if player wants to play again.
 bool AskToPlayAgain()
 {
-	using namespace std;
-	cout << "Do you want to play again (y/n)? ";
-	string Response;
-	getline(cin, Response);
+	std::cout << "Do you want to play again (y/n)? ";
+	std::string Response;
+	getline(std::cin, Response);
 	return (Response[0] == 'y') || (Response[0] == 'Y');
 }
