@@ -32,13 +32,21 @@ void PrintIntro()
 
 void PlayGame()
 {
+	// Reset game conditions.
+	BCGame.Reset();
+
 	// Loop for number of turns asking for guesses.
+	// TODO change from FOR to WHILE loop once we are validating tries.
 	int MaxTries = BCGame.GetMaxTries();
 	for (int i = 1; i <= MaxTries; i++)
 	{
-		std::string Guess = GetGuess();
+		std::string Guess = GetGuess(); // TODO add validation check
+		// Submit valid guess to game.
+		// Print number of bulls and cows.
 		std::cout << "Your guess was: " << Guess << "\n\n";
 	}
+
+	// TODO add a game summary.
 }
 
 // Get a guess from the player.
