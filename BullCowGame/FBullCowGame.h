@@ -10,15 +10,24 @@ struct FBullCowCount
 	int32 Cows = 0;
 };
 
+enum class EWordStatus
+{
+	OK,
+	Not_Isogram,
+	Wrong_Length,
+	Not_Lowercase
+};
+
 class FBullCowGame {
 public:
 	FBullCowGame(); // Constructor
 
 	int32 GetMaxTries() const; 
 	int32 GetCurrentTry() const;
+	int32 GetHiddenWordLength() const;
 	bool IsGameWon() const;
+	EWordStatus CheckGuessValidity(FString) const; // TODO make a more rich return value.
 	void Reset(); // TODO make a more rich return value.
-	bool CheckGuessValidity(FString); // TODO make a more rich return value.
 	
 									  // Count bulls and cows and incrementing try number, assuming valid guess.
 	FBullCowCount SubmitGuess(FString);
