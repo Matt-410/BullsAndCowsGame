@@ -40,10 +40,10 @@ FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
 	int32 HiddenWordLength = MyHiddenWord.length();
 	for (int32 i = 0; i < HiddenWordLength; i++)
 	{
-		// Compare letters against the hidden word.
+		// Compare each guess letter against all letters in the hidden word.
 		for (int32 j = 0; j < HiddenWordLength; j++)
 		{
-			if (Guess[i] == MyHiddenWord[i]) // If the letters match.
+			if (Guess[i] == MyHiddenWord[j]) // If the letters match.
 			{
 				if (i == j) // If they are in the same position.
 				{
