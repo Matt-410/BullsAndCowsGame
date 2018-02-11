@@ -2,19 +2,14 @@
 #include <string>
 
 void PrintIntro();
-std::string GetGuessAndPrintBack();
+void PlayGame();
+std::string GetGuess();
 
 // Main driver for the program.
 int main()
 {
 	PrintIntro();
-
-	// Loop for number of turns asking for guesses.
-	constexpr int NUMBER_OF_TURNS = 5;
-	for (int i = 1; i <= NUMBER_OF_TURNS; i++)
-	{
-		GetGuessAndPrintBack();
-	}
+	PlayGame();
 	return 0;
 }
 
@@ -27,15 +22,24 @@ void PrintIntro()
 	cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of?\n\n";
 }
 
-std::string GetGuessAndPrintBack()
+void PlayGame()
 {
 	using namespace std;
-	// Get a guess from the player.
+	// Loop for number of turns asking for guesses.
+	constexpr int NUMBER_OF_TURNS = 5;
+	for (int i = 1; i <= NUMBER_OF_TURNS; i++)
+	{
+		string Guess = GetGuess();
+		cout << "Your guess was: " << Guess << "\n\n";
+	}
+}
+
+// Get a guess from the player.
+std::string GetGuess()
+{
+	using namespace std;
 	cout << "Enter Your Guess: \n";
 	string Guess;
 	getline(std::cin, Guess);
-
-	// Print the guess out.
-	cout << "Your guess was: " << Guess << "\n\n";
 	return Guess;
 }
