@@ -27,15 +27,17 @@ public:
 	int32 GetCurrentTry() const;
 	int32 GetHiddenWordLength() const;
 	bool IsGameWon() const;
+
 	EGuessStatus CheckGuessValidity(FString) const; // TODO make a more rich return value.
 	void Reset(); // TODO make a more rich return value.
 	
 									  // Count bulls and cows and incrementing try number, assuming valid guess.
-	FBullCowCount SubmitGuess(FString);
+	FBullCowCount SubmitValidGuess(FString);
 
 private:
 	// See constructor for initialization.
 	int32 MyCurrentTry;
 	int32 MyMaxTries;
 	FString MyHiddenWord;
+	bool bGameIsWon;
 };
