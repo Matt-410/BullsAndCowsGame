@@ -73,7 +73,7 @@ FText GetValidGuess()
 		switch (Status)
 		{
 		case EGuessStatus::Not_Isogram:
-			std::cout << "Please enter an isogram. (Word where any letter is used only once in the word.\n)";
+			std::cout << "Please enter an isogram. (Word where any letter is used only once.\n";
 			break;
 		case EGuessStatus::Not_Lowercase:
 			std::cout << "Please enter the word in only lowercase letters.\n";
