@@ -26,6 +26,7 @@ int main()
 		PrintIntro();
 		PlayGame();
 		bPlayAgain = AskToPlayAgain();
+		if (bPlayAgain) { system("cls"); }
 	} while (bPlayAgain);
 	return 0;
 }
@@ -33,7 +34,13 @@ int main()
 // Introduction to the game.
 void PrintIntro()
 {
-	std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
+	std::cout << "Welcome to Bulls and Cows, a fun word game.\n\n";
+	std::cout << "          }   {         ___ \n";
+	std::cout << "          (o o)        (o o) \n";
+	std::cout << "   /-------\\ /          \\ /-------\\ \n";
+	std::cout << "  / | BULL |O            O| COW  | \\ \n";
+	std::cout << " *  |-,----|              |------|  * \n";
+	std::cout << "    ^      ^              ^      ^ \n\n";
 	std::cout << "Can you guess the " << BCGame.GetHiddenWordLength() << " letter isogram I'm thinking of?\n\n";
 }
 
@@ -65,7 +72,7 @@ FText GetValidGuess()
 	{
 		// Get a guess from the player.
 		int32 CurrentTry = BCGame.GetCurrentTry();
-		std::cout << "Try " << CurrentTry << ". " << "Enter Your Guess: ";
+		std::cout << "Try " << CurrentTry << " of " << BCGame.GetMaxTries() << " - " << "Enter Your Guess: ";
 		getline(std::cin, Guess);
 
 		// Check validity of guess.
@@ -73,19 +80,18 @@ FText GetValidGuess()
 		switch (Status)
 		{
 		case EGuessStatus::Not_Isogram:
-			std::cout << "Please enter an isogram. (Word where any letter is used only once.\n";
+			std::cout << "Please enter an isogram. (Word where any letter is used only once.\n\n";
 			break;
 		case EGuessStatus::Not_Lowercase:
-			std::cout << "Please enter the word in only lowercase letters.\n";
+			std::cout << "Please enter the word in only lowercase letters.\n\n";
 			break;
 		case EGuessStatus::Wrong_Length:
-			std::cout << "Please enter a " << BCGame.GetHiddenWordLength() << " letter word.\n";
+			std::cout << "Please enter a " << BCGame.GetHiddenWordLength() << " letter word.\n\n";
 			break;
 		default:
 			// Assuming the guess is valid.
 			break;
 		}
-		std::cout << std::endl;
 	} while (Status != EGuessStatus::OK);
 	return Guess;
 }
