@@ -1,6 +1,7 @@
+#pragma once
 #include "FBullCowGame.h"
 #include <map>
-#define TMap std::map
+#define TMap std::map // To make syntax Unreal friendly
 
 // Default constructor.
 FBullCowGame::FBullCowGame()
@@ -20,7 +21,7 @@ int32 FBullCowGame::GetMaxTries() const
 
 void FBullCowGame::Reset()
 {
-	const FString HIDDEN_WORD = "planet";
+	const FString HIDDEN_WORD = "planet"; // This **MUST** be an isogram.
 	MyHiddenWord = HIDDEN_WORD;
 	MyCurrentTry = 1;
 	bGameIsWon = false;
